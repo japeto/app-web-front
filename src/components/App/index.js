@@ -4,9 +4,7 @@ import './styles.css';
 import List from '../List';
 import Form from '../Form';
 
-import { 
-  getTutors, getTeachers, getStudents
- } from '../../api';
+import {  getStudents } from '../../api';
 
  import {
    BrowserRouter as Router,
@@ -33,11 +31,11 @@ const App = () =>{
         </header>
         
         <div className="App-buttons">
-          <NavLink  activeClassName="active" onClick={()=>{
+          <NavLink onClick={()=>{
             setMessage("Bienvenidos");}}
             className="Link" to="/">Formulario</NavLink>
 
-          <NavLink activeClassName="active" onClick={()=>{
+          <NavLink onClick={()=>{
             setMessage("Listado Tripulantes");
 
             getStudents().then((resp)=>{
@@ -47,36 +45,11 @@ const App = () =>{
               }));
             })
           }} className="Link" to="/students">Tripulantes</NavLink>
-
-          <NavLink activeClassName="active" onClick={()=>{
-            setMessage("Listado Formadores");
-
-            getTeachers().then((resp)=>{
-              const data = resp.data;
-              setUserList(data.filter((user)=>{
-                return user.type === "teachers"
-              }));
-            })
-          }} className="Link" to="/teachers">Profesores</NavLink>
-
-          <NavLink  activeClassName="active" onClick={()=>{
-            setMessage("Listado Tutores");
-
-            getTutors().then((resp)=>{
-              const data = resp.data;
-              setUserList(data.filter((user)=>{
-                return user.type === "tutors"
-              }));
-            })
-          }} className="Link" to="/tutors">Tutores</NavLink>
-
         </div>
       
         <Routes>
           <Route path="/" element={<Form/>} />
-          <Route path="/teachers" element={<List list={userList}/>} />
           <Route path="/students" element={<List list={userList}/>} />
-          <Route path="/tutors" element={<List list={userList}/>} />
         </Routes>
 
       </div>

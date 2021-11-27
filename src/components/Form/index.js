@@ -71,7 +71,7 @@ const Form = (props)=>{
           </div>
           <div className="input-group flex-nowrap mb-3">
             <input type="text" autoComplete="off" name="title" placeholder="Titulo" value={user.title} onChange={handleChange} /> 
-            <input type="text" autoComplete="off" name="fname" placeholder="Nombre" value={user.fname} onChange={handleChange} />
+            <input type="text" autoComplete="off" aria-label="fname" name="fname" placeholder="Nombre" value={user.fname} onChange={handleChange} />
             <input type="text" autoComplete="off" name="lname" placeholder="Apellidos" value={user.lname} onChange={handleChange} />
           </div>
           <div className="input-group flex-nowrap mb-3">
