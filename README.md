@@ -1,4 +1,4 @@
-# MTIC
+# MTIC Frontend
 
 This project has been created for MTIC 2022 course 
 
